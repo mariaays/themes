@@ -6,9 +6,13 @@
     <meta name="color:Secondary Colour" content="#cccccc" />
     <meta name="image:Sidebar" content="https://www.homeiloveyou.com/wp-content/uploads/2015/11/herb-drawing.jpg" />
     <meta name="image:Background" content="http://www.zingerbug.com/Backgrounds/background_images/light_green_diagonal_stripes_seamless_background_pattern.jpg" />
-    
+    <meta name="if:Infinite Scroll" content="0">
     <meta name="font:Body" content="Georgia" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    
+    <title>{Title}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}" />
     
     
     <style type="text/css">
@@ -94,12 +98,27 @@
             background-color: {color:Secondary Colour};
         }
         
+        #sidebarbottom .pagination {
+            width: 300px;
+            text-align: center;
+            padding: 3px 0;
+        }
+        
+        #sidebarbottom .pagination a {
+            text-decoration: none;
+            color: {color:Primary Colour};
+        }
+        
+        #sidebarbottom .pagination a:hover {
+            color: {color:Secondary Colour};
+        }
+        
         /* -------------------main content------------------------- */
         
         #content {
             width: 560px;
             background-color: rgba(252,252,252,0.35);
-            margin: 60px 0 60px 460px;
+            margin: 60px 0 60px 560px;
             padding: 20px 0;
             left: 500px;
             color: black;
@@ -109,7 +128,7 @@
            background-color: white; opacity:1;
            width: 500px;
            margin: 0 auto 20px;
-           padding:10px;
+           padding: 10px;
            
        }
        
@@ -185,10 +204,11 @@
            width: 16px;
            height: 16px;
 }
-  
-       
     </style>
-    
+    {block:IfInfiniteScroll}
+    <script type="text/javascript"
+src="https://codysherman.com/tools/infinite-scrolling/code"></script>
+    {/block:IfInfiniteScroll}
 </head>
 
 <body>
@@ -200,6 +220,13 @@
         {block:SubmissionsEnabled}<a href="/submit"><div class="links">{SubmitLabel}</div></a>{/block:SubmissionsEnabled}
         {block:HasPages}{block:Pages}<a href="{url}"><div class="links">{Label}</div></a>{/block:Pages}{/block:HasPages}
         
+        {block:IfNotInfiniteScroll}
+        <div class="pagination">
+            {block:PreviousPage}<a href="{PreviousPage}">« </a>{/block:PreviousPage}
+            {block:NextPage}<a href="{NextPage}"> »</a>{/block:NextPage}
+        </div> <!-- pagination -->
+        {/block:IfNotInfiniteScroll}
+        
         
     </div> <!-- sidebar bottom -->
     
@@ -210,7 +237,6 @@
     </div> <!-- sidebar bottom-->
     
     <div id="sidebarimg">
-        
         <img class="image" src="{image:Sidebar}" />
         
     </div> <!-- sidebarimg-->
@@ -299,8 +325,5 @@
 {/block:Posts}
 </div> <!--content-->
     
-   
 </body>
-
-              <!-- T H E M E S B Y M A R I A A Y S -->
 </html>

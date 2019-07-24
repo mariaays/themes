@@ -1,0 +1,306 @@
+<!doctype html>
+
+            <!-- T H E M E S B Y M A R I A A Y S -->
+<head>
+    <meta name="color:Primary Colour" content="#cccccc" />
+    <meta name="color:Secondary Colour" content="#cccccc" />
+    <meta name="image:Sidebar" content="https://www.homeiloveyou.com/wp-content/uploads/2015/11/herb-drawing.jpg" />
+    <meta name="image:Background" content="http://www.zingerbug.com/Backgrounds/background_images/light_green_diagonal_stripes_seamless_background_pattern.jpg" />
+    
+    <meta name="font:Body" content="Georgia" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    
+    
+    <style type="text/css">
+        body {
+            background-color: rgba(141, 224, 138, 0.74);
+            background-image: url({image:Background});
+            background-attachment: fixed;
+            opacity: 0.96;
+            word-wrap: break-word;
+            margin: 0;
+            
+        }    
+        
+        #sidebarbottom {
+            width: 300px;
+            background-color: white;
+            top: 540px;
+            left: 100px;
+            position: fixed;
+            border: 1px solid {color:Primary Colour};
+            
+            
+        }
+        
+        #sidebartop {
+            width: 300px;
+            background-color: white;
+            top: 86px;
+            left: 100px;
+            position: fixed;
+            border: 1px solid {color:Primary Colour};
+            text-align: center;
+            
+            
+        }
+        
+        #sidebarbottom .description {
+            text-align: center;
+            color: black;
+            padding: 7px;
+            font-size: 13px;
+            
+            
+        }
+        #sidebartop .title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 22px;
+            padding: 7px;
+        }
+        
+        #sidebartop .title a {
+            text-decoration: none;
+            color: {color:Primary Colour};
+        }
+        
+        #sidebartop .title a:hover {
+            color: {color:Secondary Colour};
+        }
+        
+        #sidebarimg .image {
+            background-color: {color:Primary Colour};
+            width: 250px;
+            left: 125px;
+            top: 150px;
+            height: 357px;
+            position: fixed;
+            border-radius: 50%;
+            border: 1px solid {color:Primary Colour};
+        }
+        
+        #sidebarbottom a {
+            color:white;
+            text-decoration: none;
+            float: left;
+            padding: 3px 5px;
+            margin: 3px;
+            text-align: center;
+            background-color: {color:Primary Colour};
+            width: 134px;
+        }
+        
+        #sidebarbottom a:hover {
+            background-color: {color:Secondary Colour};
+        }
+        
+        /* -------------------main content------------------------- */
+        
+        #content {
+            width: 560px;
+            background-color: rgba(252,252,252,0.35);
+            margin: 60px 0 60px 460px;
+            padding: 20px 0;
+            left: 500px;
+            color: black;
+        }
+        
+       #content #posts {
+           background-color: white; opacity:1;
+           width: 500px;
+           margin: 0 auto 20px;
+           padding:10px;
+           
+       }
+       
+       #content blockquote {
+           border-left: solid 2px black;
+           margin: 0;
+           padding-left: 10px;
+       }
+       
+       #content a {
+           text-decoration: none;
+           color: {color:Primary Colour};
+       }
+       
+       #content a:hover {
+          color: {color:Secondary Colour};
+       }
+       
+       #content #posts #tags {
+           padding: 3px;
+           margin: 2px;
+           font-size: 11px;
+           background-color: {color:Primary Colour};
+           color: white;
+           
+       }
+       
+      #content #posts #tags a {
+           color: white;
+       }
+       
+       #content #posts #tags a:hover {
+           color: {color:Secondary Colour};
+       }
+       
+       #content #posts #tags .comma:last-child {
+           display: none;
+       }
+       
+       img {
+           border: 0;
+           max-width: 100%;
+       }
+       
+       #content #posts .text {
+           font-size: 13px;
+       }
+       
+       #content #posts .title {
+           font-size: 22px;
+           
+       }
+       
+       #content #posts #permalink {
+           font-size: 11px;
+       }
+       
+       
+       #content #notecontainer {
+           margin: 20px auto;
+           width: 500px;
+           font-size: 11px;
+       }
+       
+       #content #notecontainer ol.notes {
+           list-style-type: none; 
+           margin: 0;
+           padding: 7px;
+       }
+       
+       #content #notecontainer img.avatar {
+           margin-right: 10px;
+           width: 16px;
+           height: 16px;
+}
+  
+       
+    </style>
+    
+</head>
+
+<body>
+    <div id="sidebarbottom">
+        
+        <div class="description">{Description}</div>
+        
+        {block:AskEnabled}<a href="/ask"><div class="links">{AskLabel}</div></a>{/block:AskEnabled}
+        {block:SubmissionsEnabled}<a href="/submit"><div class="links">{SubmitLabel}</div></a>{/block:SubmissionsEnabled}
+        {block:HasPages}{block:Pages}<a href="{url}"><div class="links">{Label}</div></a>{/block:Pages}{/block:HasPages}
+        
+        
+    </div> <!-- sidebar bottom -->
+    
+    <div id ="sidebartop">
+        <div class="title"><a href="/">{Title}</a></div>
+        
+        
+    </div> <!-- sidebar bottom-->
+    
+    <div id="sidebarimg">
+        
+        <img class="image" src="{image:Sidebar}" />
+        
+    </div> <!-- sidebarimg-->
+    
+    
+<div id="content">
+{block:Posts} 
+<div id="posts">
+
+    {block:Photo}
+    {LinkOpenTag}<img src="{PhotoURL-500}" />{LinkCloseTag}
+    {block:Caption}<div class="text">{Caption}</div>{/block:Caption}
+    {/block:Photo}
+    
+    {block:Photoset}
+    {Photoset-500}
+    {block:Caption}<div class="text">{Caption}</div>{/block:Caption}
+    {/block:Photoset}
+    
+    {block:Video}
+    {Video-500}
+    {block:Caption}<div class="text">{Caption}</div>{/block:Caption}
+    {/block:Video}
+    
+    {block:Audio}
+    {AudioPlayerBlack}
+    <div class="text">~ {PlayCountWithLabel}</div>
+    {block:Caption}<div class="text">{Caption}</div>{/block:Caption}
+    {/block:Audio}
+    
+    {block:Quote}
+    <div class="title">“{Quote}”</div>
+    {block:Source}<div class="text"><br>~ {Source}</div>{/block:Source}
+    {/block:Quote}
+    
+    {block:Text}
+    {block:Title}<div class="title">{Title}</div>{/block:Title}
+    <div class="text">{Body}</div>
+    {/block:Text}
+    
+    {block:Answer}
+    <div class="title">{Question}</div>
+    <div class="text">~ {Asker}</div>
+    <div class="text">{Answer}</div>
+    {/block:Answer}
+    
+    {block:Chat}
+    {block:Title}<div class="title">{Title}</div>{/block:Title}
+    <div class="text">
+    {block:Lines}
+    {block:Label}<strong>{Label}</strong>{/block:Label} {Line}<br />
+    {/block:Lines}
+    </div> <!--text-->
+    {/block:Chat}
+    
+    {block:Link}
+    <div class="title"><a href="{URL}">{Name}</a></div>
+    {block:Description}
+    <div class="text">{Description}</div>
+    {/block:Description}
+    {/block:Link}
+    
+    
+    <div id="permalink">
+        <a href="{Permalink}">
+            {block:Date}{DayOfMonthWithZero}-{MonthNumberWithZero}-{Year}{/block:Date}
+        </a>
+    </div> <!--permalink-->
+    
+    {block:HasTags}
+        <div id="tags">
+        {block:Tags}
+        <a href="{TagURL}">{Tag}</a><span class="comma" color:{color:Secondary Colour}>, </span>
+        {/block:Tags}
+        </div> <!--tags-->
+    {/block:HasTags}
+        
+    
+
+</div> <!--posts-->
+
+{block:PostNotes}
+<div id="notecontainer">{PostNotes}</div>
+{/block:PostNotes}
+
+{/block:Posts}
+</div> <!--content-->
+    
+   
+</body>
+
+              <!-- T H E M E S B Y M A R I A A Y S -->
+</html>
